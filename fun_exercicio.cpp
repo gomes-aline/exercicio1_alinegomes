@@ -9,9 +9,6 @@ MODELBEGIN
 
 // insert your equations here, between the MODELBEGIN and MODELEND words
 
-
-
-
 //Exemplo aula 01
 /*
 <<<<<<< Updated upstream
@@ -45,6 +42,93 @@ v[1] = V("c");
 v[2] = v[0]+v[1];
 RESULT(v[2])
 */
+
+
+/*
+// Exemplo aula 02
+EQUATION("X_Sum")
+//Variável do setor
+RESULT(SUM("X"))
+
+EQUATION("X_Ave")
+//Variável do setor
+RESULT(AVE("X"))
+
+EQUATION("X_Max")
+//Variável do setor
+RESULT(MAX("X"))
+*/
+
+// EXERCICIO 02
+EQUATION("X_Sum")
+/*
+Variável do setor
+*/
+v[0] = 0;
+CYCLE(cur, "FIRM")
+{
+			v[1] = VS(cur, "X");
+			v[0] = v[0] + v[1];
+}
+RESULT(v[0])
+
+EQUATION("X_Ave")
+/*
+Variável do setor
+*/
+v[0] = 0;
+v[2] = 0;
+CYCLE(cur, "FIRM")
+{
+			v[1] = VS(cur, "X");
+			v[0] = v[0] + v[1];
+			v[2] = v[2] + 1;
+			v[3] = v[0]/v[2];
+}
+RESULT(v[3])
+
+EQUATION("X_Max")
+/*
+Variável do setor
+*/
+v[0] = 0;
+CYCLE(cur, "FIRM")
+{
+			v[1] = VS(cur, "X");
+					if(v[1]>v[0])
+					{ 
+					v[2] = v[1];
+					}
+					else
+					{
+					v[2] = v[0];
+					}
+		
+		v[0] = v[2];			
+}
+RESULT(v[2])
+
+
+EQUATION("X_Share")
+//Variável da firma
+CYCLE(cur, "FIRM")
+{
+			v[1] = VS(cur, "X");
+			v[2] = VS(cur, "X_Sum");
+			v[0] = v[1]/v[2];
+}
+RESULT(v[0])
+
+
+EQUATION("X_Share_Sum")
+//Variável da firma
+v[0] = 0;
+CYCLE(cur, "FIRM")
+{
+			v[1] = VS(cur, "X_Share");
+			v[0] = v[0]+v[1];
+			}
+RESULT(v[0])
 
 MODELEND
 
