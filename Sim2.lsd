@@ -19,7 +19,7 @@ Object: Root C	1
 
 Object: MODEL C	10
 Var: X 1 s + n p	0	0	0	0	0	0	0	0	0	0
-Param: c 0 n + n n	-5	-4	-3	-2	-1	0	1	2	3	4
+Param: c 0 n + n n	1	1	1	1	1	1	1	1	1	1
 
 SIM_NUM 1
 SEED 3
@@ -48,7 +48,7 @@ END_DESCRIPTION
 Parameter_c
 (no description available)
 _INIT_
-All 10 instances increasing from -5 with step 1.
+All 10 instances equal to 1.
 END_DESCRIPTION
 
 
