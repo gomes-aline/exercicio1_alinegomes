@@ -25,6 +25,7 @@ EQUATION("X")
 RESULT(VL("X",1)+RND)
 */
 
+<<<<<<< Updated upstream
 /*
 //Exercicio 01 - passeio aleatorio opcao 2
 EQUATION("X")
@@ -35,6 +36,9 @@ v[1] = V("max");
 v[2] = uniform(v[0], v[1]);
 RESULT(v[2])
 */
+=======
+RESULT(VL("X",1)+RND)
+>>>>>>> Stashed changes
 
 
 //Exercicio 01 - passeio aleatorio opcao 3
