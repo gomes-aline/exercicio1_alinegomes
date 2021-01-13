@@ -37,6 +37,7 @@ v[2] = uniform(v[0], v[1]);
 RESULT(v[2])
 */
 =======
+//RESULT(VL("X",1)+V("c"))
 RESULT(VL("X",1)+RND)
 >>>>>>> Stashed changes
 
