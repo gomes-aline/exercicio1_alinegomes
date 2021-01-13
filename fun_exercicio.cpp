@@ -19,13 +19,6 @@ EQUATION("X")
 //Variável X
 RESULT(VL("X",1)+V("c"))
 */
-=======
-Variável X
-*/
-
-//RESULT(VL("X",1)+V("c"))
-RESULT(VL("X",1)+RND)
->>>>>>> Stashed changes
 
 /*
 //Exercicio 01 - passeio aleatorio
