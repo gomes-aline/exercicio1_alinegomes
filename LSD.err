@@ -1,0 +1,10 @@
+
+
+====================> NEW TCL SESSION
+
+(01/13/21 17:54:04)
+Command:
+if $running { showtop .da overM 0 1 } { showtop .da overM 0 1 0 }
+Message:
+bad geometry specifier "600x400+854+364:1.0+1.0"
+-----

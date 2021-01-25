@@ -18,6 +18,8 @@ Label Root
 		Var: X_Ave
 		Var: X_Max
 		Var: X_Sum
+		Var: X_Share_Sum
+		Var: Leader
 
 	}
 
@@ -33,6 +35,8 @@ Object: SECTOR C	1
 Var: X_Ave 0 s + n p
 Var: X_Max 0 s + n p
 Var: X_Sum 0 s + n p
+Var: X_Share_Sum 0 s + n p
+Var: Leader 0 s + n p
 
 Object: FIRM C	10
 Var: X 1 s + n n	0	0	0	0	0	0	0	0	0	0
@@ -73,6 +77,18 @@ END_DESCRIPTION
 
 Variable_X_Sum
 Variável do setor
+_INIT_
+
+END_DESCRIPTION
+
+Variable_X_Share_Sum
+Variável da firma
+_INIT_
+
+END_DESCRIPTION
+
+Variable_Leader
+(no description available)
 _INIT_
 
 END_DESCRIPTION

@@ -12,13 +12,14 @@ Label Root
 			Param: min
 			Var: c
 			Var: X_Share
-			Var: X_Share_Sum
 
 		}
 
 		Var: X_Ave
 		Var: X_Max
 		Var: X_Sum
+		Var: X_Share_Sum
+		Var: Leader
 
 	}
 
@@ -34,6 +35,8 @@ Object: SECTOR C	1
 Var: X_Ave 0 s + n p
 Var: X_Max 0 s + n p
 Var: X_Sum 0 s + n p
+Var: X_Share_Sum 0 s + n p
+Var: Leader 0 s + n p
 
 Object: FIRM C	10
 Var: X 1 s + n n	0	0	0	0	0	0	0	0	0	0
@@ -41,7 +44,6 @@ Param: max 0 n + n n	1	1	1	1	1	1	1	1	1	1
 Param: min 0 n + n n	0	0	0	0	0	0	0	0	0	0
 Var: c 0 n + n n
 Var: X_Share 0 s + n p
-Var: X_Share_Sum 0 s + n p
 
 SIM_NUM 1
 SEED 3
@@ -79,6 +81,16 @@ _INIT_
 
 END_DESCRIPTION
 
+Variable_X_Share_Sum
+Variável da firma
+_INIT_
+
+END_DESCRIPTION
+
+Variable_Leader
+(no description available)
+END_DESCRIPTION
+
 Object_FIRM
 (no description available)
 _INIT_
@@ -112,12 +124,6 @@ END_DESCRIPTION
 Variable_X_Share
 Variável da firma
 _INIT_
-
-END_DESCRIPTION
-
-Variable_X_Share_Sum
-Variável da firma
-
 
 END_DESCRIPTION
 
