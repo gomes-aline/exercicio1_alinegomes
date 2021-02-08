@@ -8,18 +8,53 @@
 MODELBEGIN
 
 
+//EXERCÍCIO 04
+//obs: d= 0.9; e = 0.1, min =0, max =1, e_p = 0.4, e_q = 0.8, P=1, QUALI=1
+
+EQUATION("HHI")
+//variável no nivel do setor
+ v[0] = SUM("X_Share2");
+ v[1] = 1/v[0]
+RESULT(v[1])
+
+EQUATION("X_Share2")
+//variável no nivel da firma
+CYCLE(cur, "FIRM")
+ {
+    v[0] = VS(cur, "X_Share");
+    v[1] = pow(v[0],2);
+  } 
+RESULT(v[1])
 
 //EXERCÍCIO 03
-/* OBS: Usei os seguintes valores para os parâmetros (não estão baseados em nenhuma literatura)
-	b1 = 0.8; b2 = 0.4; d= 0.9; e = 0.1
-*/
 
+/*
 EQUATION("X")
+//variável no nivel da firma
+// OBS: Usei os seguintes valores para os parâmetros (não estão baseados em nenhuma literatura)
+//	b1 = 0.8; b2 = 0.4; d= 0.9; e = 0.1
 CYCLE(cur, "FIRM")
  {
 		v[0] = V("b1")*VS(cur,"P")+V("b2")*VS(cur,"QUALI")+RND;
  }
 RESULT(v[0])
+*/
+
+EQUATION("X")
+ v[0] = V("P");
+ v[1] = V("QUALI");
+ v[2] = V("c");
+ v[3] = V("e_p");
+ v[4] = V("e_q");
+ v[5] = pow(v[1],v[4])/pow(v[0],v[3]);
+ v[6] = v[5]+v[2];
+RESULT(v[6])
+
+EQUATION("c")
+ v[0] = V("min");
+ v[1] = V("max");
+ v[2] = uniform(v[0],v[1]);
+RESULT(v[2])
 
 EQUATION("QUALI")
 //variável no nivel da firma
@@ -38,10 +73,8 @@ CYCLE(cur, "FIRM")
  } 
 RESULT(v[2])
 
-
 EQUATION("P")
 //variável no nivel da firma
-
 CYCLE(cur, "FIRM")
  {
    v[0] = VLS(cur,"P",1);
@@ -56,17 +89,15 @@ CYCLE(cur, "FIRM")
      		{
      		v[0]=v[0];
      		}
-     		
  }
 RESULT(v[0])
 
-
 EQUATION("X_Sum")
-//Variável do setor
+//Variável no nivel do setor
 RESULT(SUM("X"))
 
 EQUATION("X_Share")
-//Variável da firma
+//Variável no nivel da firma
 	v[1] = V("X");
 	v[2] = V("X_Sum");
 	v[0] = v[1]/v[2];
@@ -75,6 +106,57 @@ RESULT(v[0])
 
 
 // ======= MAIS ANTIGOS =======
+
+/*
+
+// EXERCICIO 03 - MATHEUS
+
+EQUATION("Q")
+ v[0] = VL("Q",1);
+ v[1] = V("q_sd");
+ v[2] = norm(v[0],v[1]);
+ v[3] = max(v[0],v[2]);
+RESULT(v[3])
+
+EQUATION("P")
+ v[0] = VL("P",1);
+ v[1] = V("p_adj");
+ v[2] = VL("X_Share",1);
+ v[3] = VL("X_Share",2);
+ v[4] = (v[2]-v[3])/v[3];
+ v[5] = v[0]*(1+v[1]*v[4]);
+ RESULT(v[5])
+
+EQUATION("X")
+ v[0] = V("P");
+ v[1] = V("Q");
+ v[2] = V("c");
+ v[3] = V("e_p");
+ v[4] = V("e_q");
+ v[5] = pow(v[1],v[4])/pow(v[0],v[3]);
+ v[6] = v[5]+v[2];
+RESULT(v[6])
+
+EQUATION("c")
+ v[0] = V("min");
+ v[1] = V("max");
+ v[2] = uniform(v[0],v[1]);
+RESULT(v[2])
+
+
+EQUATION("X_Sum")
+//Variável no nivel do setor
+RESULT(SUM("X"))
+
+EQUATION("X_Share")
+//Variável no nivel da firma
+	v[1] = V("X");
+	v[2] = V("X_Sum");
+	v[0] = v[1]/v[2];
+RESULT(v[0])
+
+
+
 
 //Exemplo aula 01
 /*

@@ -1,2 +1,2 @@
-c EntryExit Firm_Rank Leader P QUALI Rank X X_Ave X_Max X_Share X_Share_Sum X_Sum
-b1 b2 d e Firm_rank firm_rank max min switch_entry
+c EntryExit Firm_Rank HHI Leader P Q QUALI Rank X X_Ave X_Max X_Share X_Share2 X_Share_Sum X_Sum
+b1 b2 d e e_p e_q Firm_rank firm_rank max min p_adj q_sd switch_entry
